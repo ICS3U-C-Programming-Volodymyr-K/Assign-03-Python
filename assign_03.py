@@ -24,18 +24,20 @@ def main():
         if question_1.lower() == "yes":
             # Print the original quadratic formula
             print(f"Your formula looks like, {a_int}x**2 + {b_int}x + {c_int}")
-            e_int = b_int / a_int  # Calculate vertex x-coordinate
-            # Calculate half of the coefficient for vertex form
+             # Calculate vertex x-coordinate
+            e_int = b_int / a_int 
+            # Calculate half of th coefficient for vertex form
             d_int = (e_int / 2) ** (2)
+            d_int = round(d_int, 2)
             if b_int < 0:
                 c_int = a_int * -d_int + c_int  # Adjust constant if b is negative
                 print(
-                    f"Your formula looks like {a_int} (x - {math.sqrt(d_int)}) + {c_int}"
+                    f"Your formula looks like {a_int} (x + {math.sqrt(d_int)})**2 + {c_int}"
                 )
             elif b_int > 0:
                 c_int = a_int * -e_int + c_int  # Adjust constant if b is positive
             print(
-                f"Your formula in vertex looks like {a_int}(x + {math.sqrt(d_int)}) {c_int}"
+                f"Your formula in vertex looks like {a_int}(x - {math.sqrt(d_int)})**2 {c_int}"
             )
         elif question_1.lower() == "no":
             # Asking if the quadratic has a power
@@ -69,14 +71,18 @@ def main():
                             if b_int < 0.0:
                                 a_int = math.sqrt(a_int)
                                 c_int = math.sqrt(c_int)
+                                a_int = round(a_int, 2)
+                                c_int = round(c_int, 2)
                                 print(
                                 f"Your quadratic equation will look like, ({a_int}x - {c_int})**2"
                                 )
-                            elif b_int > 0:
+                            elif b_int > 0.0:
                                 a_int = math.sqrt(a_int)
                                 c_int = math.sqrt(c_int)
+                                a_int = round(a_int, 2)
+                                c_int = round(c_int, 2)
                                 print(
-                                f"Your quadratic equation will look like, ({a_int}x+{b_int})**2"
+                                f"Your quadratic equation will look like, ({a_int}x + {c_int})**2"
                             )
                         # Calculate roots based on the discriminant
                         elif discriminant > 0.0:
@@ -84,6 +90,8 @@ def main():
                                      math.sqrt(discriminant)) / (2 * a_int)
                                     x_two = (-b_int -
                                      math.sqrt(discriminant)) / (2 * a_int)
+                                    x_one = round(x_one, 2)
+                                    x_two = round(x_two, 2)
                                     print(
                                     f"The roots of quadratic problem are {x_one} and {x_two}")
                     except Exception:
@@ -99,7 +107,6 @@ def main():
                 )
                 # Calculate discriminant again
                 discriminant = (b_int**2) + -(4 * a_int * c_int)
-                print(f"{discriminant}")
                 try:
                     discriminant >= 0.0  # Ensure discriminant is non-negative
                     # Handle the zero discriminant case
@@ -110,17 +117,23 @@ def main():
                                          math.sqrt(discriminant)) / (2 * a_int)
                                     x_two = (-b_int -
                                          math.sqrt(discriminant)) / (2 * a_int)
+                                    x_one = round(x_one, 2)
+                                    x_two = round(x_two, 2)
                                     print(
                                     f"The roots of quadratic problem are {x_one} and {x_two}")
                     if b_int < 0.0:
                             a_int = math.sqrt(a_int)
                             c_int = math.sqrt(c_int)
+                            a_int = round(a_int, 2)
+                            c_int = round(c_int, 2)
                             print(
                             f"Your quadratic equation will look like, ({a_int}x - {c_int})**2"
                             )
                     elif b_int > 0:
                             a_int = math.sqrt(a_int)
                             c_int = math.sqrt(c_int)
+                            a_int = round(a_int, 2)
+                            c_int = round(c_int, 2)
                             print(
                             f"Your quadratic equation will look like, ({a_int}x+{b_int})**2"
                             )
@@ -134,3 +147,5 @@ def main():
         )
 if __name__ == "__main__":
     main()
+
+# cites https://www.sololearn.com/en/Discuss/3288381/how-to-round-to-2-decimal-places-in-python
